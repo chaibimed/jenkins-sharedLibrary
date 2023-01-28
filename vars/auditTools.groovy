@@ -6,6 +6,11 @@ def call(){
         }
         
         stages {
+            stage('Test'){
+                steps {
+                    echo 'this is a fake test..****'
+                }
+            }
             stage('Verify'){
                 steps {
                        sh '''
