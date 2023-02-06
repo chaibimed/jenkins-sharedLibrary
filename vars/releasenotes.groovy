@@ -2,6 +2,8 @@ import java.io.*;
 import groovy.io.*;
 import java.utils.Calendar.*;
 import java.text.SimpleDateFormat;
+import hudson.model.*;
+
 @NonCPS
 def call(Map config=[:]) {
   def dir = new File(pwd());
@@ -16,7 +18,7 @@ def call(Map config=[:]) {
   def sdf = new SimpleDateFormat("MM/dd/yyy HH:mm:ss")
   echo "****************************** date is: " + sdf.format(date);
   
-  def changeLogSets = currentBuild.changeSets;
+  def changeLogsets = currentBuild.changeSets;
   
   for(change in changeLogsets) {
     def entries = change.items;
