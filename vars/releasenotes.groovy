@@ -4,7 +4,7 @@ import groovy.io.*;
 def call(Map config=[:]) {
   def dir = new File(pwd());
 
-  new File(dir.path + '/releasenotes.txt').withWriter('utf-8')
+  new File(dir.path + '\\releasenotes.txt').withWriter('utf-8')
   {
     writer -> dir.eachFileRecurse(FileType.ANY){ file ->
        if(file.isDirectory()){
