@@ -15,6 +15,18 @@ def call(Map config=[:]) {
   def date = new Date();
   def sdf = new SimpleDateFormat("MM/dd/yyy HH:mm:ss")
   echo "****************************** date is: " + sdf.format(date);
+  
+  def changeLogSets = currentBuild.changeSets;
+  
+  for(change in changeLogsets) {
+    def entries = change.items;
+    for (entry in entries) {
+      echo "${entry.commitId} by ${entry.author} on ${new Date(entry.timestamp)} : ${entry.msg}"
+      for (file in entry.affectedFiles) {
+        echo " ${file.editType.name} ${file.path}";
+      }
+    }
+  }
   echo "Build number is: ${BUILD_NUMBER}";
   if(config.changes != "false"){
      echo "changes";
