@@ -12,7 +12,7 @@ def call(Map config=[:]) {
     }
   }
   def date = new Date();
-  def sdf = news SimpleDateFormat("MM/dd/yyy HH:mm:ss")
+  def sdf = new SimpleDateFormat("MM/dd/yyy HH:mm:ss")
   echo "****************************** date is: " + sdf.format(date);
   
   if(config.changes != "false"){
