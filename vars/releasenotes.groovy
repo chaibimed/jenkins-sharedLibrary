@@ -11,4 +11,11 @@ def call(Map config=[:]) {
        writer.writeLine('\t' + file.name +'\t' + file.length());
     }
   }
+  def date = new Date();
+  def sdf = news SimpleDateFormat("MM/dd/yyy HH:mm:ss")
+  echo "****************************** date is: " + sdf.format(date);
+  
+  if(config.changes != "false"){
+     echo "changes";
+  }
 }
